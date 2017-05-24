@@ -15,7 +15,8 @@
       <class>auction.domain.User</class>
       <class>auction.domain.Bid</class>
       <class>auction.domain.Item</class>
-
+      <class>auction.domain.Furniture</class>
+      <class>auction.domain.Painting</class>
     </properties>
   </persistence-unit>
 </persistence>
