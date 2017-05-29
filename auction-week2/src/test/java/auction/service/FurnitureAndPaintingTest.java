@@ -27,8 +27,8 @@ public class FurnitureAndPaintingTest {
         registrationMgr = new RegistrationMgr();
         auctionMgr = new AuctionMgr();
         sellerMgr = new SellerMgr();
-        DatabaseCleaner dc = new DatabaseCleaner();
-        dc.clean();
+//        DatabaseCleaner dc = new DatabaseCleaner();
+//        dc.clean();
     }
 
     @Test

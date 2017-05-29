@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: auction.service.JPAAuctionMgrTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.05 sec <<< FAILURE!
-newBid(auction.service.JPAAuctionMgrTest)  Time elapsed: 0 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.085 sec <<< FAILURE!
+newBid(auction.service.JPAAuctionMgrTest)  Time elapsed: 0.016 sec  <<< ERROR!
 Local Exception Stack: 
 Exception [EclipseLink-30005] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
 Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7
@@ -68,7 +68,7 @@ Caused by: java.lang.NullPointerException
 	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processORMetadata(PersistenceUnitProcessor.java:585)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1869)
 	... 36 more
-getItem(auction.service.JPAAuctionMgrTest)  Time elapsed: 0.021 sec  <<< ERROR!
+getItem(auction.service.JPAAuctionMgrTest)  Time elapsed: 0.031 sec  <<< ERROR!
 Local Exception Stack: 
 Exception [EclipseLink-30005] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
 Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7
@@ -134,7 +134,7 @@ Caused by: java.lang.NullPointerException
 	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processORMetadata(PersistenceUnitProcessor.java:585)
 	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1869)
 	... 36 more
-findItemByDescription(auction.service.JPAAuctionMgrTest)  Time elapsed: 0.027 sec  <<< ERROR!
+findItemByDescription(auction.service.JPAAuctionMgrTest)  Time elapsed: 0.038 sec  <<< ERROR!
 Local Exception Stack: 
 Exception [EclipseLink-30005] (Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
 Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@4aa298b7

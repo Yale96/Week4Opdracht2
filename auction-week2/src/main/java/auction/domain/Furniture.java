@@ -5,14 +5,18 @@
  */
 package auction.domain;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
  * @author yanni
  */
 @Entity
-public class Furniture extends Item {
+@PrimaryKeyJoinColumn(name = "parent_id", referencedColumnName = "id")
+public class Furniture extends Item implements Serializable{
+    @PrimaryKeyJoinColumn(name = "parent_id", referencedColumnName = "id")
     private String material;
     
     public Furniture(String material, User seller, Category category, String description)
@@ -20,7 +24,12 @@ public class Furniture extends Item {
         super(seller, category, description);
         this.material = material;
     }
-
+    
+    public Furniture()
+    {
+        
+    }
+    
     public String getMaterial() {
         return material;
     }

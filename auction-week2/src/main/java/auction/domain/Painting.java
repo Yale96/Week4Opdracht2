@@ -5,15 +5,19 @@
  */
 package auction.domain;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
  * @author yanni
  */
 @Entity
-public class Painting extends Item{
+@PrimaryKeyJoinColumn(name = "parent_id", referencedColumnName = "id")
+public class Painting extends Item implements Serializable{
     
+    @PrimaryKeyJoinColumn(name = "parent_id", referencedColumnName = "id")
     private String title;
     private String painter;
     
@@ -23,7 +27,12 @@ public class Painting extends Item{
         this.title = title;
         this.painter = painter;
     }
-
+    
+    public Painting()
+    {
+        
+    }
+    
     public String getTitle() {
         return title;
     }
