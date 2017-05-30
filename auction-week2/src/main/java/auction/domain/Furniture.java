@@ -14,12 +14,10 @@ import javax.persistence.PrimaryKeyJoinColumn;
  * @author yanni
  */
 @Entity
-@PrimaryKeyJoinColumn(name = "parent_id", referencedColumnName = "id")
 public class Furniture extends Item implements Serializable{
-    @PrimaryKeyJoinColumn(name = "parent_id", referencedColumnName = "id")
     private String material;
     
-    public Furniture(String material, User seller, Category category, String description)
+    public Furniture(User seller, Category category, String description, String material)
     {
         super(seller, category, description);
         this.material = material;

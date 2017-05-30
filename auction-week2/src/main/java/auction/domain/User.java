@@ -22,17 +22,19 @@ import org.eclipse.persistence.annotations.CascadeOnDelete;
 })
 public class User {
     
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id 
+    @GeneratedValue
     private Long id;
+    
     @Column(unique = true)
     private String email;
     
-    @OneToMany(mappedBy = "buyer", cascade = CascadeType.REMOVE)
-    @CascadeOnDelete
-    private Set<Bid> bids;
-    @CascadeOnDelete
-    @OneToMany(mappedBy= "seller", cascade = CascadeType.REMOVE)
-    private Set<Item> offeredItems = new HashSet();
+//    @OneToMany(mappedBy = "buyer", cascade = CascadeType.REMOVE)
+//    @CascadeOnDelete
+//    private Set<Bid> bids;
+//    @CascadeOnDelete
+    @OneToMany(mappedBy= "seller", cascade = CascadeType.PERSIST)
+    private Set<Item> offeredItems;
 
     public User()
     {
@@ -66,13 +68,13 @@ public class User {
         this.id = id;
     }
 
-    public Set<Bid> getBids() {
-        return bids;
-    }
-
-    public void setBids(Set<Bid> bids) {
-        this.bids = bids;
-    }
+//    public Set<Bid> getBids() {
+//        return bids;
+//    }
+//
+//    public void setBids(Set<Bid> bids) {
+//        this.bids = bids;
+//    }
     
     public void addItem(Item item)
     {

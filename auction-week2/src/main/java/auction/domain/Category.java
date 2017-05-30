@@ -7,7 +7,6 @@ import javax.persistence.Id;
 @Embeddable
 public class Category {
     
-    @Id
     private String description;
 
     private Category() {

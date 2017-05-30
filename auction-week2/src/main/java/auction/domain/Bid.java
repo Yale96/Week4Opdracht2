@@ -1,39 +1,35 @@
 package auction.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import nl.fontys.util.FontysTime;
 import nl.fontys.util.Money;
 
 @Entity
 public class Bid {
-
-    @Embedded
-    private FontysTime time;
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    private User buyer;
-    @Embedded
-    private Money amount;
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
-    @OneToOne (cascade = CascadeType.MERGE)
-    @PrimaryKeyJoinColumn
-    private Item item;
+    
+    private FontysTime time;
+    
+    @OneToOne
+    private User buyer;
+    
+    private Money amount;
+    
+    @OneToOne
+    private Item bettedItem;
 
     public Item getItem() {
-        return item;
+        return bettedItem;
     }
 
     public void setItem(Item item) {
-        this.item = item;
+        this.bettedItem = item;
     }
 
     public Bid(User buyer, Money amount) {

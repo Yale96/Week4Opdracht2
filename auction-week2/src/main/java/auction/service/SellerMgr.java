@@ -45,17 +45,17 @@ public class SellerMgr {
     
     public Painting offerPainting(User user, Category category, String description, String painter, String title)
     {
-        Painting p = new Painting(title, painter, user, category, description);
-        user.addItem(p);
+        Painting p = new Painting(user, category, description, title, painter);
         itemDAO.create(p);
+        user.addItem(p);
         return p;
     }
     
     public Furniture offerFurniture(User user, Category category, String description, String material)
     {
-        Furniture f = new Furniture(material, user, category, description);
-        user.addItem(f);
+        Furniture f = new Furniture(user, category, description, material);
         itemDAO.create(f);
+        user.addItem(f);
         return f;
     }
 }

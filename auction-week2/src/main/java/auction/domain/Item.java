@@ -23,7 +23,7 @@ import javax.persistence.Persistence;
 import nl.fontys.util.Money;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED) 
+@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
 @NamedQueries({
     @NamedQuery(name = "Item.getAll", query = "select i from Item as i"),
     @NamedQuery(name = "Item.count", query = "select count(i) from Item as i"),
@@ -34,20 +34,28 @@ public class Item implements Comparable {
     
     
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue
     private Long id;
-    @ManyToOne (cascade = CascadeType.PERSIST)
+    
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private User seller;
+
+    public void setSeller(User seller) {
+        this.seller = seller;
+    }
     
     
    @Embedded
     @AttributeOverrides({
         @AttributeOverride(name = "description", column = @Column(name = "category_description"))
     })
-
+   
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Category category;
+   
     private String description;
-    @OneToOne(cascade=CascadeType.PERSIST)
+    
+    @OneToOne(cascade=CascadeType.PERSIST, mappedBy="bettedItem")
     private Bid highest;
     
     
