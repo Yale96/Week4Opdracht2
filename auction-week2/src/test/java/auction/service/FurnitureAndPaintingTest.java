@@ -30,17 +30,17 @@ public class FurnitureAndPaintingTest {
         registrationMgr = new RegistrationMgr();
         auctionMgr = new AuctionMgr();
         sellerMgr = new SellerMgr();
-//        DatabaseCleaner dc = new DatabaseCleaner();
-//        dc.clean();
+       DatabaseCleaner dc = new DatabaseCleaner();
+        dc.clean();
     }
     
     @After
     public void tearDown() {
-        try {
-            clean.clean();
-        } catch (SQLException ex) {
-            System.out.println(ex.toString());
-        }
+        //try {
+         //   clean.clean();
+        //} catch (SQLException ex) {
+         //   System.out.println(ex.toString());
+        //}
     }
 
     @Test
@@ -58,7 +58,8 @@ public class FurnitureAndPaintingTest {
         Iterator<Item> it = foundUser.getOfferedItems();
         Item firstItem = it.next();
    //        int xxx = 22;
-        assertEquals("item added in offeredItems", furniture1, firstItem);
+        assertSame("item added in offeredItems", furniture1, firstItem);
+   
         Item item2 = sellerMgr.offerPainting(u1, cat, omsch, "Nachtwacht", "Rembrandt");
         it = registrationMgr.getUser(iemand1).getOfferedItems();
         assertTrue(it.hasNext());
@@ -84,7 +85,8 @@ public class FurnitureAndPaintingTest {
 
         Item foundFurniture = auctionMgr.getItem(furniture1.getId());
         int i = 3;
-        assertEquals(foundFurniture.getHighestBid(), bid);
+        assertEquals(furniture1.getHighestBid(), bid);
         assertTrue(foundFurniture.getClass() == Furniture.class);
+
     }
 }
