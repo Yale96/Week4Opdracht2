@@ -79,16 +79,20 @@ public class User {
     public void addItem(Item item)
     {
         offeredItems.add(item);
+        item.setSeller(this);
     }
     
     public int numberOfOfferdItems()
     {
-        if(offeredItems.size() == 0)
-        {
-            return 0;
-        }
-        else
-            return offeredItems.size();
+        
+        return offeredItems.size();
     }
-
+    
+    public void addItemToThisUser(Item item)
+    {
+        if(item != null && !item.getDescription().isEmpty())
+        {
+            addItem(item);
+        }
+    }
 }

@@ -5,8 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import util.DatabaseCleaner;
 import auction.domain.*;
+import java.sql.SQLException;
 import java.util.Iterator;
 import nl.fontys.util.Money;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -18,6 +20,7 @@ public class FurnitureAndPaintingTest {
     private AuctionMgr auctionMgr;
     private RegistrationMgr registrationMgr;
     private SellerMgr sellerMgr;
+    private DatabaseCleaner clean;
 
     public FurnitureAndPaintingTest() {
     }
@@ -29,6 +32,15 @@ public class FurnitureAndPaintingTest {
         sellerMgr = new SellerMgr();
 //        DatabaseCleaner dc = new DatabaseCleaner();
 //        dc.clean();
+    }
+    
+    @After
+    public void tearDown() {
+        try {
+            clean.clean();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
     }
 
     @Test

@@ -27,8 +27,4 @@ public class Furniture extends Item implements Serializable{
     {
         
     }
-    
-    public String getMaterial() {
-        return material;
-    }
 }

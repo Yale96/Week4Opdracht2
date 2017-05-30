@@ -47,7 +47,7 @@ public class SellerMgr {
     {
         Painting p = new Painting(user, category, description, title, painter);
         itemDAO.create(p);
-        user.addItem(p);
+        user.addItemToThisUser(p);
         return p;
     }
     
@@ -55,7 +55,7 @@ public class SellerMgr {
     {
         Furniture f = new Furniture(user, category, description, material);
         itemDAO.create(f);
-        user.addItem(f);
+        user.addItemToThisUser(f);
         return f;
     }
 }
