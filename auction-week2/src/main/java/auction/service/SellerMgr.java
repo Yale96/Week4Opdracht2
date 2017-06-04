@@ -19,13 +19,13 @@ public class SellerMgr {
      * @return het item aangeboden door seller, behorende tot de categorie cat
      *         en met de beschrijving description
      */
-    public Item offerItem(User seller, Category cat, String description) {
-        // TODO 
-        Item toReturn = new Item(seller, cat, description);
-        seller.addItem(toReturn);
-        itemDAO.create(toReturn);
-        return toReturn;
-    }
+//    public Item offerItem(User seller, Category cat, String description) {
+//        // TODO 
+//        Item toReturn = new Item(seller, cat, description);
+//        seller.addItem(toReturn);
+//        itemDAO.create(toReturn);
+//        return toReturn;
+//    }
     
      /**
      * @param item

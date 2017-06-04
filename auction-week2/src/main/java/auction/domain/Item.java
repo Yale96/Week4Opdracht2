@@ -23,14 +23,14 @@ import javax.persistence.Persistence;
 import nl.fontys.util.Money;
 
 @Entity
-@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQueries({
     @NamedQuery(name = "Item.getAll", query = "select i from Item as i"),
     @NamedQuery(name = "Item.count", query = "select count(i) from Item as i"),
     @NamedQuery(name = "Item.findByDescription", query = "select i from Item as i where i.description = :description"),
     @NamedQuery(name = "Item.findById", query = "select i from Item as i where i.id = :id") 
 })
-public class Item implements Comparable {
+public abstract class Item implements Comparable {
     
     
     @Id
